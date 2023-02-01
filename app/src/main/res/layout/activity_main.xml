@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        android:id="@+id/mainActivityAppbarLayout">
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="BMI Calculator"
+            android:textStyle="normal"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="The BMI is defined as the body mass divided by the square of the body height, and is expressed in units of kg/m², resulting from mass in kilograms and height in metres."
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:gravity="start"
+            android:layout_margin="8sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="By: Lawi Otieno \n +254708581688"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:gravity="end"
+            android:textColor="@color/white"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:layout_below="@id/mainActivityAppbarLayout"
+        android:layout_above="@id/mainActivityBtnCalculateBmi"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/mainActivityLayoutMale"
+                android:background="@drawable/rectangle_purple_outline">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/male_img" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MALE"
+                    android:textStyle="normal"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="12dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/mainActivityLayoutFemale"
+                android:background="@drawable/rectangle_black_7dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/female_img"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEMALE"
+                    android:textStyle="normal"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginVertical="16dp"
+            android:gravity="center"
+            android:background="@drawable/rectangle_black_7dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HEIGHT"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:alpha="0.7"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="173"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:id="@+id/mainActivityTvHeight"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cm"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="4dp"/>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/mainActivitySeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="36dp"
+                android:layout_marginTop="16dp"
+                android:max="220"
+                android:maxHeight="3dp"
+                android:min="70"
+                android:minHeight="3dp"
+                android:progress="183"
+                android:progressDrawable="@drawable/seek_background"
+                android:thumb="@drawable/seek_control" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_black_7dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WEIGHT"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:alpha="0.7"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="bottom">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="64"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="1dp"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        android:alpha="0.7"
+                        android:id="@+id/mainActivityTvWeight"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kg"
+                        android:textSize="20sp"
+                        android:textStyle="normal"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/mainActivityTvDecWeight"
+                        android:text="-"
+                        android:textSize="30sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/circle_black"/>
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/mainActivityTvAddWeight"
+                        android:text="+"
+                        android:textSize="30sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle_black"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_black_7dp"
+                android:gravity="center"
+                android:layout_marginStart="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AGE"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:alpha="0.7"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="bottom">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="29"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="1dp"
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        android:alpha="0.7"
+                        android:id="@+id/mainActivityTvAge"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yrs"
+                        android:textSize="20sp"
+                        android:textStyle="normal"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/mainActivityTvDecAge"
+                        android:text="-"
+                        android:textSize="30sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/circle_black"/>
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/mainActivityTvAddAge"
+                        android:text="+"
+                        android:textSize="30sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle_black"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <android.widget.Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Calculate Your BMI"
+        android:id="@+id/mainActivityBtnCalculateBmi"
+        android:textSize="16dp"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:background="@drawable/rectangle_purple_7dp"/>
+
+</RelativeLayout>
